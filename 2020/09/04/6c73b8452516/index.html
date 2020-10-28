@@ -1,0 +1,709 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Cause all of me, Loves all of you">
+  <meta name="author" content="Godcic">
+  <meta name="keywords" content="">
+  <title>Google Dirve 系列(02) - Gclone &amp; Fclone - 晓昏晨韵</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>晓昏晨韵</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-09-04 09:36" pubdate>
+        2020年9月4日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      660 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">Google Dirve 系列(02) - Gclone &amp; Fclone</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用SA、Fclone进行本地文件上传，Copy分享链接等。<br>本文不讲 Rclone ，但 Gclone &amp; Fclone 都是基于 Rclone 魔改而来的，默认你对 Rclone 有基本的了解。</p>
+<!--more-->
+
+<ul>
+<li><p>系列文章</p>
+<ul>
+<li><a href="/2020/09/04/fab61b423009/" title="Google Dirve 系列(01) - 使用AutoRclone生成SA文件">Google Dirve 系列(01) - 使用AutoRclone生成SA文件</a>
+</li>
+<li><p>Google Dirve 系列(02) - Gclone &amp; Fclone</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Gclone-的安装和使用"><a href="#Gclone-的安装和使用" class="headerlink" title="Gclone 的安装和使用"></a>Gclone 的安装和使用</h1><ul>
+<li><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/donwa/gclone">https://github.com/donwa/gclone</a></p>
+</li>
+<li><p>Linux 一键脚本</p>
+  <pre><code class="hljs lisp">bash &lt;(<span class="hljs-name">wget</span> -qO- https<span class="hljs-symbol">://git</span>.io/gclone.sh)</code></pre>
+</li>
+<li><p>查看版本</p>
+  <pre><code class="hljs ada">gclone <span class="hljs-comment">--version</span></code></pre>
+</li>
+<li><p>进行配置，也可直接写配置文件</p>
+  <pre><code class="hljs arduino">gclone <span class="hljs-built_in">config</span></code></pre>
+<p>  名字为 gc ，可随意，选择团队盘，选择正确的。<br>  “service_account_file”后面的值是生成的accounts里随意的一个.json文件绝对路径。<br>  “service_account_file_path”后面的值是accounts目录绝对路径。</p>
+<p>  直接写入配置。如果没有安装过 Rclone 需要建立文件夹 <code>mkdir -p /root/.config/rclone</code> ， 否则不用。</p>
+<p>  <code>vim /root/.config/rclone/rclone.conf</code></p>
+<p>  例：（名称可改，<code>service_account_file</code> 和 <code>service_account_file_path</code> 根据上面的解释更改，<code>team_drive</code> 为共享云盘的ID）</p>
+  <pre><code class="hljs ini"><span class="hljs-section">[gc]</span>
+<span class="hljs-attr">type</span> = drive
+<span class="hljs-attr">scope</span> = drive
+<span class="hljs-attr">service_account_file</span> = /root/SA/<span class="hljs-number">00004221420057</span>cb7624d3c0dcd7cc2182f87ee8.json
+<span class="hljs-attr">service_account_file_path</span> = /root/SA
+<span class="hljs-attr">team_drive</span> = <span class="hljs-number">0</span>AMmeDqxQStamUk9PVA
+</code></pre></li>
+<li><p>转存用法</p>
+  <pre><code class="hljs powershell">gclone <span class="hljs-built_in">copy</span> <span class="hljs-built_in">gc</span>:&#123;【源盘】ID&#125; <span class="hljs-built_in">gc</span>:&#123;【目的盘】ID&#125;  -<span class="hljs-literal">-drive</span><span class="hljs-literal">-server</span><span class="hljs-literal">-side</span><span class="hljs-literal">-across</span><span class="hljs-literal">-configs</span></code></pre>
+</li>
+<li><p>显示速度</p>
+  <pre><code class="hljs diff"><span class="hljs-deletion">-v</span></code></pre>
+</li>
+<li><p>去重</p>
+  <pre><code class="hljs haxe">gclone dedupe <span class="hljs-keyword">new</span><span class="hljs-type">est</span> gc:<span class="hljs-type"></span>&#123;目录ID&#125;</code></pre>
+</li>
+<li><p>上传本地文件，同 Rclone</p>
+  <pre><code class="hljs gradle">gclone move <span class="hljs-regexp">/root/</span>Download<span class="hljs-regexp">/ gc:Download/</span>
+gclone <span class="hljs-keyword">copy</span> <span class="hljs-regexp">/root/</span>Download<span class="hljs-regexp">/ gc:Download/</span></code></pre>
+
+</li>
+</ul>
+<h1 id="Fclone-的安装和使用"><a href="#Fclone-的安装和使用" class="headerlink" title="Fclone 的安装和使用"></a>Fclone 的安装和使用</h1><ul>
+<li><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/mawaya/rclone">https://github.com/mawaya/rclone</a></p>
+</li>
+<li><p>Linux 一键脚本</p>
+  <pre><code class="hljs lisp">bash &lt;(<span class="hljs-name">wget</span> -qO- https<span class="hljs-symbol">://git</span>.io/JJYE0)</code></pre>
+</li>
+<li><p>使用方法</p>
+<blockquote>
+<p>gclone 改成 fclone 即可</p>
+</blockquote>
+</li>
+<li><p>查看版本</p>
+  <pre><code class="hljs ada">fclone <span class="hljs-comment">--version</span></code></pre>
+</li>
+<li><p>转存用法</p>
+  <pre><code class="hljs routeros">fclone copy gc:&#123;【源盘】ID&#125; gc:&#123;【目的盘】ID&#125;  --drive-server-side-across-configs <span class="hljs-attribute">--stats</span>=1s --stats-one-line -vP <span class="hljs-attribute">--checkers</span>=128 <span class="hljs-attribute">--transfers</span>=128 <span class="hljs-attribute">--drive-pacer-min-sleep</span>=1ms --check-first</code></pre>
+
+  <pre><code class="hljs routeros">A：低配VPS推荐
+--drive-server-side-across-configs <span class="hljs-attribute">--stats</span>=1s --stats-one-line -vP <span class="hljs-attribute">--checkers</span>=128 <span class="hljs-attribute">--transfers</span>=128 <span class="hljs-attribute">--drive-pacer-min-sleep</span>=1ms --check-first
+
+B：低配VPS推荐
+--drive-server-side-across-configs <span class="hljs-attribute">--stats</span>=1s --stats-one-line -vP <span class="hljs-attribute">--checkers</span>=128 <span class="hljs-attribute">--transfers</span>=256 <span class="hljs-attribute">--drive-pacer-min-sleep</span>=1ms --check-first
+
+C：
+--drive-server-side-across-configs <span class="hljs-attribute">--stats</span>=1s --stats-one-line -vP <span class="hljs-attribute">--checkers</span>=256 <span class="hljs-attribute">--transfers</span>=256 <span class="hljs-attribute">--drive-pacer-min-sleep</span>=1ms --check-first
+
+D：
+--drive-server-side-across-configs <span class="hljs-attribute">--stats</span>=1s --stats-one-line -vP <span class="hljs-attribute">--checkers</span>=256 <span class="hljs-attribute">--transfers</span>=256 <span class="hljs-attribute">--drive-pacer-min-sleep</span>=1ms <span class="hljs-attribute">--drive-pacer-burst</span>=5000 --check-first
+
+E:中高配独服以上推荐
+--drive-server-side-across-configs <span class="hljs-attribute">--stats</span>=1s --stats-one-line -vP <span class="hljs-attribute">--checkers</span>=320 <span class="hljs-attribute">--transfers</span>=320 <span class="hljs-attribute">--drive-pacer-min-sleep</span>=1ms <span class="hljs-attribute">--drive-pacer-burst</span>=5000 --check-first
+
+</code></pre>
+</li>
+<li><p>参数说明</p>
+<ul>
+<li><p>服务端传递</p>
+<blockquote>
+<p>–drive-server-side-across-configs</p>
+</blockquote>
+</li>
+<li><p>日常参数</p>
+<blockquote>
+<p>–stats=1s –stats-one-line -vP</p>
+</blockquote>
+</li>
+<li><p>越大越快</p>
+<blockquote>
+<p>–checkers=数字</p>
+</blockquote>
+</li>
+<li><p>越大越快</p>
+<blockquote>
+<p>–transfers=数字</p>
+</blockquote>
+</li>
+<li><p>越小越快</p>
+<blockquote>
+<p>–drive-pacer-min-sleep=数字ms</p>
+</blockquote>
+</li>
+<li><p>越大越快</p>
+<blockquote>
+<p>–drive-pacer-burst=数字</p>
+</blockquote>
+</li>
+<li><p>fmod必须参数</p>
+<blockquote>
+<p>–check-first</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Fclone 的速度要优于 Gclone ，但是对于SA的数量和VPS的性能有要求，建议2000以上SA才使用 Fclone，否则 <code>--checkers=数字</code> <code>--transfers=数字</code> <code>--drive-pacer-burst=数字</code> 都设置的低些。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/GoogleDrive/">GoogleDrive</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Gclone/">Gclone</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Fclone/">Fclone</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/09/04/f99a937c02dc/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">使用Fclone挂载别人的共享云盘，进行搬运</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/09/04/fab61b423009/">
+                        <span class="hidden-mobile">Google Dirve 系列(01) - 使用AutoRclone生成SA文件</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/main.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 6,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Google Dirve 系列(02) - Gclone & Fclone&nbsp;",
+      ],
+      cursorChar: "|",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "❡"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>
