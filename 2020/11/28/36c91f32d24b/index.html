@@ -17,7 +17,7 @@
   <meta name="description" content="Cause all of me, Loves all of you">
   <meta name="author" content="Godcic">
   <meta name="keywords" content="">
-  <title>利用免费Docker容器镜像服务搭建无限容量不限速的网盘 - 晓昏晨韵</title>
+  <title>Oracle Cloud 通过DD磁盘来拯救启动失败的机器 - 晓昏晨韵</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -177,8 +177,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-11-03 23:40" pubdate>
-        2020年11月3日 晚上
+      <time datetime="2020-11-28 18:50" pubdate>
+        2020年11月28日 晚上
       </time>
     </span>
   
@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      654 字
+      543 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      7
        分钟
     </span>
   
@@ -237,32 +237,28 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">利用免费Docker容器镜像服务搭建无限容量不限速的网盘</h1>
+            <h1 style="display: none">Oracle Cloud 通过DD磁盘来拯救启动失败的机器</h1>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong><font color=D22222>特别说明：这里只是分享相关技术，请不要乱用资源！造成任何后果与本博无关！感谢大家理解！</font></strong></p>
-<p>目前多家大的服务商都提供了免费的Docker容器镜像服务。国内也有一些，比如阿里云，方便国内使用。前一段时间看到一个开源项目，利用容器镜像服务来存放一些文件。上传和下载速度都还不错。这里分享一下。</p>
-<p>这个开源项目是用Dart开发语言编写的，Dart 是一个来自Google的为全平台构建快速应用的客户端优化的编程语言。</p>
-<p>项目详情请查看Github，这里只说明使用方法。<br>项目地址：<a target="_blank" rel="noopener" href="https://github.com/xausky/DockerRegisterCloud">https://github.com/xausky/DockerRegisterCloud</a></p>
-<p>可供免费使用的Doker仓库：</p>
-<p><strong>国内：</strong><br>阿里云：<a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/">https://cr.console.aliyun.com</a><br>华为云：<a target="_blank" rel="noopener" href="https://console.huaweicloud.com/swr">https://console.huaweicloud.com/swr</a></p>
-<p><strong>国外：</strong><br>Docker Hub：<a target="_blank" rel="noopener" href="https://hub.docker.com/">https://hub.docker.com/</a></p>
-<h1 id="下载客户端"><a href="#下载客户端" class="headerlink" title="下载客户端"></a>下载客户端</h1><p>根据自己的平台下载对应客户端版本。<br>地址：<a target="_blank" rel="noopener" href="https://github.com/xausky/DockerRegisterCloud/releases">https://github.com/xausky/DockerRegisterCloud/releases</a><br><img src="https://i.loli.net/2020/11/04/3zTuOep2VhtPdMo.png" srcset="/img/loading.gif"></p>
-<h1 id="Docker-Hub中使用"><a href="#Docker-Hub中使用" class="headerlink" title="Docker Hub中使用"></a><code>Docker Hub</code>中使用</h1><p>1、注册一个  <a target="_blank" rel="noopener" href="https://hub.docker.com/">Docker Hub</a> 账号。这个没什么难度，注册好后，保存好账号密码。</p>
-<p>2、新建一个仓库，名称随意。建议建立私有仓库。<br>地址：<a target="_blank" rel="noopener" href="https://hub.docker.com/repository/create">https://hub.docker.com/repository/create</a><br><img src="https://i.loli.net/2020/11/04/2n7X5MRIWaDFgkm.png" srcset="/img/loading.gif"></p>
-<p>3、然后在<code>Docker Commands</code>中复制红框部分，就是你的仓库地址。<br><img src="https://i.loli.net/2020/11/04/Gkz4EXr8HcRTtSI.png" srcset="/img/loading.gif"></p>
-<p>4、将复制的内容粘贴到地址栏。<br><img src="https://i.loli.net/2020/11/04/fse8lzxiw67TCuZ.png" srcset="/img/loading.gif"></p>
-<p>5、点击<code>刷新</code>按钮或按回车键会进行连接，输入你的账号和密码。<br><img src="https://i.loli.net/2020/11/04/NUpn9tWu4hzdG8o.png" srcset="/img/loading.gif"></p>
-<p>6、登录成功后，即可进行文件上传、下载、管理等操作。<br><img src="https://i.loli.net/2020/11/04/gP3w261uArYbzI8.png" srcset="/img/loading.gif"></p>
-<h1 id="阿里云中使用"><a href="#阿里云中使用" class="headerlink" title="阿里云中使用"></a>阿里云中使用</h1><p>1、开通阿里云免费的Docker存储。<br>登陆阿里云，然后访问：<a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/">https://cr.console.aliyun.com</a><br>首先要设置登陆密码，这个密码后面会使用到。<br><img src="https://i.loli.net/2020/11/04/PA4fTDQgzE8dVjJ.png" srcset="/img/loading.gif"></p>
-<p>2、根据提示创建使用仓库。<br><img src="https://i.loli.net/2020/11/04/utylcgExTHq4a5z.png" srcset="/img/loading.gif"><br><img src="https://i.loli.net/2020/11/04/BIY7xSFp5NW4b9d.png" srcset="/img/loading.gif"></p>
-<p>3、创建完成后，点击仓库，进入后，复制<code>公网地址</code>到客户端地址进行登录即可。<br><img src="https://i.loli.net/2020/11/04/sdZKjPlQTEONkDR.png" srcset="/img/loading.gif"></p>
-<h1 id="华为云中使用"><a href="#华为云中使用" class="headerlink" title="华为云中使用"></a>华为云中使用</h1><p>1、首先注册 <a target="_blank" rel="noopener" href="https://activity.huaweicloud.com/">华为云</a> 账号，已有账号请跳过。然后 <a target="_blank" rel="noopener" href="https://console.huaweicloud.com/swr">开通服务</a> 。</p>
-<p>2、首先需要创建组织，请记住组织名。<br><img src="https://i.loli.net/2020/11/04/jDQZpFRUewxlB6Y.png" srcset="/img/loading.gif"></p>
-<p>3、点击网页右上角<code>登录指令</code>，生成登录信息。<br><img src="https://i.loli.net/2020/11/04/lwFEAoaf145uM7e.png" srcset="/img/loading.gif"><br>如图所示。</p>
-<p>用户名：cn-east-3@WTC8VWSLPVYZDQW5O341<br>密码：ffd166984983f341ad2563f06a09244c8f9516ef2ba7c073186a5e4598eb584d<br>仓库地址：swr.cn-east-3.myhuaweicloud.com/<font color=red>imgram</font>/<font color=red>pan</font></p>
-<p>仓库地址后面的内容自己定义，没有要求。</p>
-<p>有了这些信息后，就可以在客户端登录使用了。但是华为云针对登陆指令做了过期时间的限制，有效期只有1天。所以不推荐使用华为云。</p>
+              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Oracle Cloud 可以免费使用2台VPS。如果由于误操作导致无法开机，又不想删鸡重新创建实例的话，可以将引导卷挂载到<code>另一台正常运行</code>的VPS上，进行DD操作复活。</p>
+<p>两个引导卷的大小应该要一致，因为是克隆磁盘。如果大小不一致会有什么后果，我没有尝试……</p>
+<h1 id="1、分离坏的引导卷"><a href="#1、分离坏的引导卷" class="headerlink" title="1、分离坏的引导卷"></a>1、分离坏的引导卷</h1><p>将不能正常运行的VPS的引导分离。</p>
+<p>在 <code>计算机</code> &gt; <code>实例</code> 中选择不能正常运行的VPS，查看详情信息。在左下部选项中选择 <code>引导卷</code> 进行分离。<br><img src="https://i.loli.net/2020/11/28/1rmi27PdVvapfkU.png" srcset="/img/loading.gif"></p>
+<h1 id="2、附加坏的引导卷"><a href="#2、附加坏的引导卷" class="headerlink" title="2、附加坏的引导卷"></a>2、附加坏的引导卷</h1><p>引导卷分离完成后，打开可以正常运行的VPS的详细信息页面，在左下部选项中选择 <code>附加的块存储卷</code> 附加。</p>
+<p><img src="https://i.loli.net/2020/11/28/emoPkdGnOY26hU9.png" srcset="/img/loading.gif"></p>
+<p>选择要附加的引导卷。</p>
+<h1 id="3、进行磁盘克隆"><a href="#3、进行磁盘克隆" class="headerlink" title="3、进行磁盘克隆"></a>3、进行磁盘克隆</h1><h3 id="查看附加的引导卷的-iSCSI命令和信息"><a href="#查看附加的引导卷的-iSCSI命令和信息" class="headerlink" title="查看附加的引导卷的 iSCSI命令和信息"></a>查看附加的引导卷的 <code>iSCSI命令和信息</code></h3><p><img src="https://i.loli.net/2020/11/28/zEoNvkjrlLY8ROT.png" srcset="/img/loading.gif"><br><img src="https://i.loli.net/2020/11/28/ahDxy5lu46nC2Tz.png" srcset="/img/loading.gif"></p>
+<h3 id="挂载磁盘"><a href="#挂载磁盘" class="headerlink" title="挂载磁盘"></a>挂载磁盘</h3><p>SSH连接正常的VPS，复制上一步获取到的 <code>用于连接的命令</code> 到控制台，三行都复制，直接回车，会有 <code>successful</code> 的提示。<br><img src="https://i.loli.net/2020/11/28/vb8jiT9qR13IdUC.png" srcset="/img/loading.gif"></p>
+<h3 id="磁盘克隆"><a href="#磁盘克隆" class="headerlink" title="磁盘克隆"></a>磁盘克隆</h3><p><code>fdisk -l</code> 查看已挂载的磁盘信息。<br><img src="https://i.loli.net/2020/11/28/fwhxnEzqgbkAsy2.png" srcset="/img/loading.gif"></p>
+<p>我这里有两块磁盘 <code>sda</code> 和 <code>sdc</code>。</p>
+<p>因为克隆磁盘比较耗时，因此建议通过<code>screen</code>进行操作，防止意外断开连接，导致操作中断。</p>
+<p>输入命令 <code>dd if=/dev/sda of=/dev/sdc bs=10M count=100000</code> 进行磁盘克隆，如果你的第二块磁盘是<code>scb</code>，那么要相应更改 <code>dd if=/dev/sda of=/dev/sdb bs=10M count=100000</code>。</p>
+<p>如果想要查看克隆进度，另开一个SSH窗口，输入命令 <code>watch -n 5 pkill -USR1 ^dd$</code> ，再选择原来的窗口，即可看到进度显示。<br><img src="https://i.loli.net/2020/11/28/NfH41R69vWYosO8.png" srcset="/img/loading.gif"></p>
+<h1 id="4、挂载回坏的VPS"><a href="#4、挂载回坏的VPS" class="headerlink" title="4、挂载回坏的VPS"></a>4、挂载回坏的VPS</h1><p>克隆完成后，通过获取的<code>iSCSI命令和信息</code>中<code>用于断开连接的命令</code>，在终端输入并运行。<br><img src="https://i.loli.net/2020/11/28/ahDxy5lu46nC2Tz.png" srcset="/img/loading.gif"><br><img src="https://i.loli.net/2020/11/28/1CWLIp9EbgvYKNa.png" srcset="/img/loading.gif"></p>
+<p>在网页上分离附加的块存储卷。<br><img src="https://i.loli.net/2020/11/28/Os8J5tlBDeiA3qT.png" srcset="/img/loading.gif"></p>
+<p>在坏的VPS的详细信息页面附加引导卷，启动实例即可。<br><img src="https://i.loli.net/2020/11/28/BurymcbotqxHzD8.png" srcset="/img/loading.gif"></p>
+<hr>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av73322794/">oracle终身免费VPS通过DD磁盘来拯救启动失败的机器</a></p>
 
             </div>
             <hr>
@@ -280,7 +276,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%BD%91%E7%9B%98/">网盘</a>
+                      <a class="hover-with-bg" href="/tags/Oracle-Cloud/">Oracle Cloud</a>
                     
                   </div>
                 
@@ -293,18 +289,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/11/28/36c91f32d24b/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Oracle Cloud 通过DD磁盘来拯救启动失败的机器</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/28/0d2e8d22f8e8/">
-                        <span class="hidden-mobile">Hexo的搭建和基本使用</span>
+                      <a href="/2020/11/03/257b27bd3086/">
+                        <span class="hidden-mobile">利用免费Docker容器镜像服务搭建无限容量不限速的网盘</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -466,7 +456,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "利用免费Docker容器镜像服务搭建无限容量不限速的网盘&nbsp;",
+        "Oracle Cloud 通过DD磁盘来拯救启动失败的机器&nbsp;",
       ],
       cursorChar: "|",
       typeSpeed: 70,
