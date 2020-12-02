@@ -17,10 +17,23 @@
   <meta name="description" content="Cause all of me, Loves all of you">
   <meta name="author" content="Godcic">
   <meta name="keywords" content="">
-  <title>分类 - 晓昏晨韵</title>
+  <title>page.title - 晓昏晨韵</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -178,95 +191,10 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
+<div class="page-content">
+  <h1 id="个人博客"><a href="#个人博客" class="headerlink" title="个人博客"></a>个人博客</h1><p>访问地址：<a href="https://blog.umoe.vip/">https://blog.umoe.vip/</a></p>
+<p>博客页面使用 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 生成，使用 <a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid">Fluid</a> 主题。</p>
 
-
-
-
-
-
-<div class="category-list">
-  
-  
-  
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-cki7prqub0004acryhwtm55sj" role="tab" data-toggle="collapse" href="#collapse-cki7prqub0004acryhwtm55sj"
-        aria-expanded="false"
-      >
-        教程
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>7</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-cki7prqub0004acryhwtm55sj" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-cki7prqub0004acryhwtm55sj">
-    
-    
-    
-      
-      
-        <a href="/2020/11/28/36c91f32d24b/" class="list-group-item list-group-item-action">
-          <span class="category-post">Oracle Cloud 通过DD磁盘来拯救启动失败的机器</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/11/03/257b27bd3086/" class="list-group-item list-group-item-action">
-          <span class="category-post">利用免费Docker容器镜像服务搭建无限容量不限速的网盘</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/10/28/0d2e8d22f8e8/" class="list-group-item list-group-item-action">
-          <span class="category-post">Hexo的搭建和基本使用</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/11/a54e2a26ecc2/" class="list-group-item list-group-item-action">
-          <span class="category-post">Photoshop 快速更改证件照背景</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/04/f99a937c02dc/" class="list-group-item list-group-item-action">
-          <span class="category-post">使用Fclone挂载别人的共享云盘，进行搬运</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/04/6c73b8452516/" class="list-group-item list-group-item-action">
-          <span class="category-post">Google Dirve 系列(02) - Gclone &amp; Fclone</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/09/04/fab61b423009/" class="list-group-item list-group-item-action">
-          <span class="category-post">Google Dirve 系列(01) - 使用AutoRclone生成SA文件</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
 </div>
 
               </div>
@@ -381,7 +309,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "分类&nbsp;",
+        "page.title&nbsp;",
       ],
       cursorChar: "|",
       typeSpeed: 70,
@@ -395,6 +323,23 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "❡"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
 
 
 
