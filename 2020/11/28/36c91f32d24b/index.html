@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      593 字
+      615 字
     </span>
   
 
@@ -258,14 +258,30 @@ yum install -y iscsi-initiator-utils
 apt install -y open-iscsi
 <span class="hljs-meta"># 安装完成后重新执行连接命令</span></code></pre>
 <p><img src="https://i.loli.net/2020/11/28/vb8jiT9qR13IdUC.png" srcset="/img/loading.gif"></p>
-<h3 id="磁盘克隆"><a href="#磁盘克隆" class="headerlink" title="磁盘克隆"></a>磁盘克隆</h3><p><code>fdisk -l</code> 查看已挂载的磁盘信息。<br><img src="https://i.loli.net/2020/11/28/fwhxnEzqgbkAsy2.png" srcset="/img/loading.gif"></p>
-<p>我这里有两块磁盘 <code>sda</code> 和 <code>sdc</code>。</p>
+<h3 id="磁盘克隆"><a href="#磁盘克隆" class="headerlink" title="磁盘克隆"></a>磁盘克隆</h3><p><code>fdisk -l</code> 查看已挂载的磁盘信息。</p>
+<p><img src="https://i.loli.net/2020/12/03/9JuIeNBKnZQaF16.png" srcset="/img/loading.gif"></p>
+<p>我这里有两块磁盘 <code>sda</code> 和 <code>sdb</code>。</p>
 <p>因为克隆磁盘比较耗时，因此建议通过<code>screen</code>进行操作，防止意外断开连接，导致操作中断。</p>
-<p>输入命令 <code>dd if=/dev/sda of=/dev/sdc bs=10M count=100000</code> 进行磁盘克隆，如果你的第二块磁盘是<code>scb</code>，那么要相应更改 <code>dd if=/dev/sda of=/dev/sdb bs=10M count=100000</code>。</p>
+<pre><code class="hljs routeros"><span class="hljs-comment"># 查看已挂载的磁盘信息</span>
+fdisk -l
+
+<span class="hljs-comment"># screen </span>
+screen -S q
+
+<span class="hljs-comment"># 进行磁盘克隆</span>
+dd <span class="hljs-attribute">if</span>=/dev/sda <span class="hljs-attribute">of</span>=/dev/sdb <span class="hljs-attribute">bs</span>=10M <span class="hljs-attribute">count</span>=100000</code></pre>
 <p>如果想要查看克隆进度，另开一个SSH窗口，输入命令 <code>watch -n 5 pkill -USR1 ^dd$</code> ，再选择原来的窗口，即可看到进度显示。<br><img src="https://i.loli.net/2020/11/28/NfH41R69vWYosO8.png" srcset="/img/loading.gif"></p>
 <h1 id="4、挂载回坏的VPS"><a href="#4、挂载回坏的VPS" class="headerlink" title="4、挂载回坏的VPS"></a>4、挂载回坏的VPS</h1><p>克隆完成后，通过获取的<code>iSCSI命令和信息</code>中<code>用于断开连接的命令</code>，在终端输入并运行。<br><img src="https://i.loli.net/2020/11/28/ahDxy5lu46nC2Tz.png" srcset="/img/loading.gif"><br><img src="https://i.loli.net/2020/11/28/1CWLIp9EbgvYKNa.png" srcset="/img/loading.gif"></p>
 <p>在网页上分离附加的块存储卷。<br><img src="https://i.loli.net/2020/11/28/Os8J5tlBDeiA3qT.png" srcset="/img/loading.gif"></p>
 <p>在坏的VPS的详细信息页面附加引导卷，启动实例即可。<br><img src="https://i.loli.net/2020/11/28/BurymcbotqxHzD8.png" srcset="/img/loading.gif"></p>
+<p>最后，如果因为<code>sudo: iscsiadm: command not found</code>错误，安装了<code>iscsi</code>，建议卸载。</p>
+<pre><code class="hljs routeros"><span class="hljs-comment">#centos/redhalt系列</span>
+yum <span class="hljs-builtin-name">remove</span> -y iscsi-initiator-utils
+    
+<span class="hljs-comment">#debian系列</span>
+apt <span class="hljs-builtin-name">remove</span> -y open-iscsi</code></pre>
+
+
 <hr>
 <p>参考：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av73322794/">oracle终身免费VPS通过DD磁盘来拯救启动失败的机器</a></p>
 
