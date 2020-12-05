@@ -299,7 +299,7 @@ hexo deploy</code></pre></li>
 <ul>
 <li>登录<code>GitHub</code>，进入之前创建的仓库，点击<code>setting</code>，下滑找到<code>GitHub Pages</code>选项，设置<code>Custom domain</code>，填上你的域名，记得在你的域名注册商添加域名解析。</li>
 </ul>
-<p><img src="https://i.loli.net/2020/10/28/rwi7ROScqA2JYjm.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Godcic/ImageShack/images/20201205130817.png" srcset="/img/loading.gif"></p>
 <ul>
 <li><p>然后在本地的博客文件目录下的<code>source</code>目录下新建一个<code>CNAME</code>文件，没有后缀名，里面填写你的域名，我这里是<code>blog.umoe.vip</code>。同时要将<code>_config.yml</code>中的<code>url</code>改为你的新网址。</p>
 </li>
@@ -320,7 +320,7 @@ hexo deploy</code></pre></li>
 <h2 id="3、部署优化"><a href="#3、部署优化" class="headerlink" title="3、部署优化"></a>3、部署优化</h2><p>每次都要执行<code>hexo clean</code> <code>hexo deploy</code>，不如写个新的脚本。</p>
 <p>修改录下的<code>package.json</code>文件:</p>
 <pre><code class="hljs 1c"><span class="hljs-string">&quot;build&quot;</span>: <span class="hljs-string">&quot;hexo clean &amp; hexo deploy&quot;</span>,</code></pre>
-<p><img src="https://i.loli.net/2020/10/28/rQDZacX51p36ylW.png" srcset="/img/loading.gif"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Godcic/ImageShack/images/20201205130816.png" srcset="/img/loading.gif"></p>
 <p>部署命令就可以改为：</p>
 <pre><code class="hljs dockerfile">npm <span class="hljs-keyword">run</span><span class="bash"> build</span></code></pre>
 
