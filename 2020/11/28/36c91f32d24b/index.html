@@ -247,8 +247,8 @@
 <h1 id="2、附加坏的引导卷"><a href="#2、附加坏的引导卷" class="headerlink" title="2、附加坏的引导卷"></a>2、附加坏的引导卷</h1><p>引导卷分离完成后，打开可以正常运行的VPS的详细信息页面，在左下部选项中选择 <code>附加的块存储卷</code> 附加。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Godcic/ImageShack/images/20201205132002.png" srcset="/img/loading.gif"></p>
 <p>选择要附加的引导卷。</p>
-<h1 id="3、进行磁盘克隆"><a href="#3、进行磁盘克隆" class="headerlink" title="3、进行磁盘克隆"></a>3、进行磁盘克隆</h1><h3 id="查看附加的引导卷的-iSCSI命令和信息"><a href="#查看附加的引导卷的-iSCSI命令和信息" class="headerlink" title="查看附加的引导卷的 iSCSI命令和信息"></a>查看附加的引导卷的 <code>iSCSI命令和信息</code></h3><p><img src="https://cdn.jsdelivr.net/gh/Godcic/ImageShack/images/20201205132044.png" srcset="/img/loading.gif"><br><img src="https://cdn.jsdelivr.net/gh/Godcic/ImageShack/images/20201205132043.png" srcset="/img/loading.gif"></p>
-<h3 id="挂载磁盘"><a href="#挂载磁盘" class="headerlink" title="挂载磁盘"></a>挂载磁盘</h3><p>SSH连接正常的VPS，复制上一步获取到的 <code>用于连接的命令</code> 到控制台，三行都复制，直接回车，会有 <code>successful</code> 的提示。</p>
+<h1 id="3、进行磁盘克隆"><a href="#3、进行磁盘克隆" class="headerlink" title="3、进行磁盘克隆"></a>3、进行磁盘克隆</h1><h2 id="查看附加的引导卷的-iSCSI命令和信息"><a href="#查看附加的引导卷的-iSCSI命令和信息" class="headerlink" title="查看附加的引导卷的 iSCSI命令和信息"></a>查看附加的引导卷的 <code>iSCSI命令和信息</code></h2><p><img src="https://cdn.jsdelivr.net/gh/Godcic/ImageShack/images/20201205132044.png" srcset="/img/loading.gif"><br><img src="https://cdn.jsdelivr.net/gh/Godcic/ImageShack/images/20201205132043.png" srcset="/img/loading.gif"></p>
+<h2 id="挂载磁盘"><a href="#挂载磁盘" class="headerlink" title="挂载磁盘"></a>挂载磁盘</h2><p>SSH连接正常的VPS，复制上一步获取到的 <code>用于连接的命令</code> 到控制台，三行都复制，直接回车，会有 <code>successful</code> 的提示。</p>
 <p>如果出现<code>sudo: iscsiadm: command not found</code> 错误：</p>
 <pre><code class="hljs vala"><span class="hljs-meta"># 在linux上安装iscsi客户端</span>
 <span class="hljs-meta">#centos/redhalt系列</span>
@@ -258,7 +258,7 @@ yum install -y iscsi-initiator-utils
 apt install -y open-iscsi
 <span class="hljs-meta"># 安装完成后重新执行连接命令</span></code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/Godcic/ImageShack/images/20201205132132.png" srcset="/img/loading.gif"></p>
-<h3 id="磁盘克隆"><a href="#磁盘克隆" class="headerlink" title="磁盘克隆"></a>磁盘克隆</h3><p><code>fdisk -l</code> 查看已挂载的磁盘信息。</p>
+<h2 id="磁盘克隆"><a href="#磁盘克隆" class="headerlink" title="磁盘克隆"></a>磁盘克隆</h2><p><code>fdisk -l</code> 查看已挂载的磁盘信息。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Godcic/ImageShack/images/20201205132131.png" srcset="/img/loading.gif"></p>
 <p>我这里有两块磁盘 <code>sda</code> 和 <code>sdb</code>。</p>
 <p>因为克隆磁盘比较耗时，因此建议通过<code>screen</code>进行操作，防止意外断开连接，导致操作中断。</p>
@@ -313,6 +313,12 @@ apt <span class="hljs-builtin-name">remove</span> -y open-iscsi</code></pre>
                 <div class="post-prevnext row">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2020/12/31/bb3180dd6d20/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">N1+手机USB共享网络+Openwrt+V2</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
