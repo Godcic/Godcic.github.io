@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      586 字
+      570 字
     </span>
   
 
@@ -199,7 +199,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8
+      7
        分钟
     </span>
   
@@ -242,15 +242,13 @@
             <div class="markdown-body" id="post-body">
               <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前一阵子看到大佬编译了树莓派的openwrt，就想搞个，但是我没有树莓派啊。于是拿出了吃灰许久的N1，想着给它编译个openwrt，毕竟废物利用嘛。</p>
 <p>再一想，我也没有4G网卡，那么就用手机USB共享网络吧。于是，经过三四天的反复编译，一个比较满意的版本出来了，首先说明，大概不支持USB 4G网卡。我把手机USB共享网络的驱动编译了，至于4G网卡的驱动我随便选了几个，不确定是否支持。</p>
-<h1 id="镜像下载"><a href="#镜像下载" class="headerlink" title="镜像下载"></a>镜像下载</h1><p>镜像下载地址(二选一即可)：</p>
-<p><a target="_blank" rel="noopener" href="https://teambition.ml/file/5fc46e01b84f1be8885b3c94/cba6507f08b97ff7189ee243938a46b1/20.12.31-162707-phicomm-n1-5.4.83-aarch64-openwrt-firmware.rar">Teambition下载点</a></p>
-<p><a target="_blank" rel="noopener" href="https://sharegd.ml/api/download/20.12.31-162707-phicomm-n1-5.4.83-aarch64-openwrt-firmware.rar?id=1nLoz2Tx2ydoLv7sfCfBFxlNTFxRu9TgE&sig=4d557fa8a1ac05903d62854568695a612d6777e8253cbf4a1ce33a7879ab2ac2">Cloudflare GoogleDrive下载点</a></p>
+<h1 id="镜像下载"><a href="#镜像下载" class="headerlink" title="镜像下载"></a>镜像下载</h1><p><a target="_blank" rel="noopener" href="https://imgrams-my.sharepoint.com/:f:/g/personal/godcic_imgram_ml/Emucnt9ncY5Kv6Jswhi4U6UB7T1gwwefltIaNGaZIFAk_g?e=Xl2gyN">OneDirve</a></p>
 <h1 id="刷入镜像"><a href="#刷入镜像" class="headerlink" title="刷入镜像"></a>刷入镜像</h1><p>解压得到镜像，写入U盘，插到N1，待N1启动后，通过SSH连接。</p>
 <p>默认IP：<code>192.168.6.1</code><br>用户名：<code>root</code><br>密码：<code>password</code></p>
-<pre><code class="hljs vala"><span class="hljs-meta"># 将镜像写入到emmc</span>
-n1-install
+<pre><code class="hljs awk"><span class="hljs-comment"># 将镜像写入到emmc</span>
+<span class="hljs-regexp">/root/i</span>nst-to-emmc.sh
 
-<span class="hljs-meta"># 安装完成后，重启N1，拔掉U盘</span>
+<span class="hljs-comment"># 安装完成后，重启N1，拔掉U盘</span>
 reboot</code></pre>
 
 <h1 id="网络设置"><a href="#网络设置" class="headerlink" title="网络设置"></a>网络设置</h1><h2 id="设置手机USB网络共享"><a href="#设置手机USB网络共享" class="headerlink" title="设置手机USB网络共享"></a>设置手机USB网络共享</h2><p>重启完成后，手机连接N1，并开启USB网络共享。通过SSH连接N1。</p>
