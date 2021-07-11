@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -265,8 +265,8 @@ apt install -y open-iscsi
 <pre><code class="hljs routeros"><span class="hljs-comment"># 查看已挂载的磁盘信息</span>
 fdisk -l
 
-<span class="hljs-comment"># screen </span>
-screen -S q
+<span class="hljs-comment"># screen </span><span class="hljs-built_in"></span>
+<span class="hljs-built_in">screen </span>-S q
 
 <span class="hljs-comment"># 进行磁盘克隆</span>
 dd <span class="hljs-attribute">if</span>=/dev/sda <span class="hljs-attribute">of</span>=/dev/sdb <span class="hljs-attribute">bs</span>=10M <span class="hljs-attribute">count</span>=100000</code></pre>

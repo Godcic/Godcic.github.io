@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -247,13 +247,8 @@
 
 <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>Fclone、SA。如果不了解，或者不想弄，没有SA也可以只是每天有750G上传限制。具体可看前面的博文：</p>
 <ul>
-<li><a href="/2020/09/04/fab61b423009/" title="Google Dirve 系列(01) - 使用AutoRclone生成SA文件">Google Dirve 系列(01) - 使用AutoRclone生成SA文件</a>
-</li>
-<li><a href="/2020/09/04/6c73b8452516/" title="Google Dirve 系列(02) - Gclone &amp; Fclone">Google Dirve 系列(02) - Gclone &amp; Fclone</a>
-
-
-
-</li>
+<li><a href="/2020/09/04/fab61b423009/" title="Google Dirve 系列(01) - 使用AutoRclone生成SA文件">Google Dirve 系列(01) - 使用AutoRclone生成SA文件</a></li>
+<li><a href="/2020/09/04/6c73b8452516/" title="Google Dirve 系列(02) - Gclone &amp; Fclone">Google Dirve 系列(02) - Gclone &amp; Fclone</a></li>
 </ul>
 <h1 id="使用Fclone挂载别人共享云盘"><a href="#使用Fclone挂载别人共享云盘" class="headerlink" title="使用Fclone挂载别人共享云盘"></a>使用Fclone挂载别人共享云盘</h1><p>这里没有什么多说的，使用 <code>fclone config</code> 挂载可以，也可直接写入配置，具体参考上面博文。在挂载别人的共享云盘时，因为你自己的账户有查看权限，所以使用你自己的API来挂载。</p>
 <h2 id="申请Google-API"><a href="#申请Google-API" class="headerlink" title="申请Google API"></a>申请Google API</h2><p>如果没有 <code>Google API</code> 需要申请, 有的话直接跳至 <a href="#jump">挂载他人的共享云盘</a> 。 </p>
@@ -272,11 +267,10 @@
 <ul>
 <li>也可以在凭借栏里点击客户端ID查看</li>
 </ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Godcic/ImageShack/images/20201205124523.png" srcset="/img/loading.gif"></p>
 </li>
-</ul>
-<p>  <img src="https://cdn.jsdelivr.net/gh/Godcic/ImageShack/images/20201205124523.png" srcset="/img/loading.gif"></p>
-<ul>
-<li>到此申请Goole API凭借完成。</li>
+<li><p>到此申请Goole API凭借完成。</p>
+</li>
 </ul>
 <h2 id="挂载他人的共享云盘"><a href="#挂载他人的共享云盘" class="headerlink" title="挂载他人的共享云盘"></a>挂载他人的共享云盘<span id="jump"></span></h2><ul>
 <li><p>通过 <code>fclone config</code> 配置，记得使用自己的API key，配置完成后会生成配置文件 <code>/root/.config/rclone/rclone.conf</code>。查看该文件：</p>
@@ -311,8 +305,7 @@
 fclone copy NewAlphabet: byp: -vP
 
 <span class="hljs-comment"># 比较合适的一个copy命令</span>
-fclone copy NewAlphabet: MyNewAlphabet: <span class="hljs-attribute">--stats</span>=1s --stats-one-line -vP <span class="hljs-attribute">--checkers</span>=10 <span class="hljs-attribute">--transfers</span>=10 <span class="hljs-attribute">--drive-pacer-min-sleep</span>=1ms <span class="hljs-attribute">--drive-pacer-burst</span>=10 --check-first</code></pre>
-</li>
+fclone copy NewAlphabet: MyNewAlphabet: <span class="hljs-attribute">--stats</span>=1s --stats-one-line -vP <span class="hljs-attribute">--checkers</span>=10 <span class="hljs-attribute">--transfers</span>=10 <span class="hljs-attribute">--drive-pacer-min-sleep</span>=1ms <span class="hljs-attribute">--drive-pacer-burst</span>=10 --check-first</code></pre></li>
 <li><p>我在GCP免费小鸡上的速度。GCP到Google Drive的流量是免费的，所以可以一直跑。同样的，这也可以拿来给OneDrive搬家。</p>
 <p>  <img src="https://cdn.jsdelivr.net/gh/Godcic/ImageShack/images/20201205124643.png" srcset="/img/loading.gif"></p>
 </li>
