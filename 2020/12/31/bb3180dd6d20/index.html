@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
@@ -253,13 +253,13 @@
 reboot</code></pre>
 
 <h1 id="网络设置"><a href="#网络设置" class="headerlink" title="网络设置"></a>网络设置</h1><h2 id="设置手机USB网络共享"><a href="#设置手机USB网络共享" class="headerlink" title="设置手机USB网络共享"></a>设置手机USB网络共享</h2><p>重启完成后，手机连接N1，并开启USB网络共享。通过SSH连接N1。</p>
-<pre><code class="hljs vala"><span class="hljs-meta"># 输入命令，可以看到有一个 usb0 网络接口，即为手机网络端口。但此时用 ifconfig 是无法查看到的</span>
-ifconfig -a
+<pre><code class="hljs livecodeserver"><span class="hljs-comment"># 输入命令，可以看到有一个 usb0 网络接口，即为手机网络端口。但此时用 ifconfig 是无法查看到的</span>
+ifconfig -<span class="hljs-keyword">a</span>
 
-<span class="hljs-meta"># 输入以下命令</span>
+<span class="hljs-comment"># 输入以下命令</span>
 udhcpc -i usb0
 
-<span class="hljs-meta"># 此时，用 ifconfig 可查看到usb0网络端口</span>
+<span class="hljs-comment"># 此时，用 ifconfig 可查看到usb0网络端口</span>
 ifconfig
 </code></pre>
 

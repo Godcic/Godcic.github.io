@@ -52,7 +52,7 @@
 
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
@@ -189,7 +189,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      660 字
+      665 字
     </span>
   
 
@@ -246,7 +246,8 @@
 <ul>
 <li><p>系列文章</p>
 <ul>
-<li><a href="/2020/09/04/fab61b423009/" title="Google Dirve 系列(01) - 使用AutoRclone生成SA文件">Google Dirve 系列(01) - 使用AutoRclone生成SA文件</a></li>
+<li><a href="/2020/09/04/fab61b423009/" title="Google Dirve 系列(01) - 使用AutoRclone生成SA文件">Google Dirve 系列(01) - 使用AutoRclone生成SA文件</a>
+</li>
 <li><p>Google Dirve 系列(02) - Gclone &amp; Fclone</p>
 </li>
 </ul>
@@ -275,13 +276,14 @@
 <span class="hljs-attr">team_drive</span> = <span class="hljs-number">0</span>AMmeDqxQStamUk9PVA
 </code></pre></li>
 <li><p>转存用法</p>
-  <pre><code class="hljs powershell">gclone <span class="hljs-built_in">copy</span> <span class="hljs-built_in">gc</span>:&#123;【源盘】ID&#125; <span class="hljs-built_in">gc</span>:&#123;【目的盘】ID&#125;  -<span class="hljs-literal">-drive</span><span class="hljs-literal">-server</span><span class="hljs-literal">-side</span><span class="hljs-literal">-across</span><span class="hljs-literal">-configs</span></code></pre>
+  <pre><code class="hljs css">gclone copy gc:&#123;【源盘】ID&#125; gc:&#123;【目的盘】ID&#125;  <span class="hljs-attr">--drive-server-side-across-configs</span></code></pre>
 </li>
 <li><p>显示速度</p>
   <pre><code class="hljs diff"><span class="hljs-deletion">-v</span></code></pre>
 </li>
 <li><p>去重</p>
-  <pre><code class="hljs haxe">gclone dedupe <span class="hljs-keyword">new</span><span class="hljs-type">est</span> gc:<span class="hljs-type"></span>&#123;目录ID&#125;</code></pre></li>
+  <pre><code class="hljs haxe">gclone dedupe <span class="hljs-keyword">new</span><span class="hljs-type">est</span> gc:<span class="hljs-type"></span>&#123;目录ID&#125;</code></pre>
+</li>
 <li><p>上传本地文件，同 Rclone</p>
   <pre><code class="hljs gradle">gclone move <span class="hljs-regexp">/root/</span>Download<span class="hljs-regexp">/ gc:Download/</span>
 gclone <span class="hljs-keyword">copy</span> <span class="hljs-regexp">/root/</span>Download<span class="hljs-regexp">/ gc:Download/</span></code></pre></li>
@@ -290,14 +292,16 @@ gclone <span class="hljs-keyword">copy</span> <span class="hljs-regexp">/root/</
 <li><p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/mawaya/rclone">https://github.com/mawaya/rclone</a></p>
 </li>
 <li><p>Linux 一键脚本</p>
-  <pre><code class="hljs awk">bash &lt;(wget -qO- https:<span class="hljs-regexp">//gi</span>t.io/JJYE0)</code></pre></li>
+  <pre><code class="hljs awk">bash &lt;(wget -qO- https:<span class="hljs-regexp">//gi</span>t.io/JJYE0)</code></pre>
+</li>
 <li><p>使用方法</p>
 <blockquote>
 <p>gclone 改成 fclone 即可</p>
 </blockquote>
 </li>
 <li><p>查看版本</p>
-  <pre><code class="hljs ada">fclone <span class="hljs-comment">--version</span></code></pre></li>
+  <pre><code class="hljs ada">fclone <span class="hljs-comment">--version</span></code></pre>
+</li>
 <li><p>转存用法</p>
   <pre><code class="hljs routeros">fclone copy gc:&#123;【源盘】ID&#125; gc:&#123;【目的盘】ID&#125;  --drive-server-side-across-configs <span class="hljs-attribute">--stats</span>=1s --stats-one-line -vP <span class="hljs-attribute">--checkers</span>=128 <span class="hljs-attribute">--transfers</span>=128 <span class="hljs-attribute">--drive-pacer-min-sleep</span>=1ms --check-first</code></pre>
   <pre><code class="hljs routeros">A：低配VPS推荐
@@ -315,34 +319,48 @@ D：
 E:中高配独服以上推荐
 --drive-server-side-across-configs <span class="hljs-attribute">--stats</span>=1s --stats-one-line -vP <span class="hljs-attribute">--checkers</span>=320 <span class="hljs-attribute">--transfers</span>=320 <span class="hljs-attribute">--drive-pacer-min-sleep</span>=1ms <span class="hljs-attribute">--drive-pacer-burst</span>=5000 --check-first
 
-</code></pre></li>
+</code></pre>
+</li>
 <li><p>参数说明</p>
 <ul>
-<li>服务端传递<blockquote>
-<p>–drive-server-side-across-configs</p>
+<li><p>服务端传递</p>
+<blockquote>
+<p>–drive-server-side-across-configs
+  </p>
 </blockquote>
 </li>
-<li>日常参数<blockquote>
-<p>–stats=1s –stats-one-line -vP</p>
+<li><p>日常参数</p>
+<blockquote>
+<p>–stats&#x3D;1s –stats-one-line -vP
+  </p>
 </blockquote>
 </li>
-<li>越大越快<blockquote>
-<p>–checkers=数字</p>
+<li><p>越大越快</p>
+<blockquote>
+<p>–checkers&#x3D;数字
+  </p>
 </blockquote>
 </li>
-<li>越大越快<blockquote>
-<p>–transfers=数字</p>
+<li><p>越大越快</p>
+<blockquote>
+<p>–transfers&#x3D;数字
+  </p>
 </blockquote>
 </li>
-<li>越小越快<blockquote>
-<p>–drive-pacer-min-sleep=数字ms</p>
+<li><p>越小越快</p>
+<blockquote>
+<p>–drive-pacer-min-sleep&#x3D;数字ms
+  </p>
 </blockquote>
 </li>
-<li>越大越快<blockquote>
-<p>–drive-pacer-burst=数字</p>
+<li><p>越大越快</p>
+<blockquote>
+<p>–drive-pacer-burst&#x3D;数字
+  </p>
 </blockquote>
 </li>
-<li>fmod必须参数<blockquote>
+<li><p>fmod必须参数</p>
+<blockquote>
 <p>–check-first</p>
 </blockquote>
 </li>
